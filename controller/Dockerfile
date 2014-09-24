@@ -15,13 +15,13 @@ RUN useradd deis --groups sudo --home-dir /app --shell /bin/bash
 RUN sed -i -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
 
 # create a /app directory for storing application data
-RUN mkdir -p /app && chown -R deis:deis /app
+RUN mkdir -p /app && chown -R builtdock:builtdock /app
 
 # create directory for confd templates
-RUN mkdir -p /templates && chown -R deis:deis /templates
+RUN mkdir -p /templates && chown -R builtdock:builtdock /templates
 
 # create directory for logs
-RUN mkdir -p /var/log/deis && chown -R deis:deis /var/log/deis
+RUN mkdir -p /var/log/builtdock && chown -R builtdock:builtdock /var/log/builtdock
 
 # define execution environment
 CMD ["/app/bin/boot"]

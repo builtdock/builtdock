@@ -9,8 +9,8 @@ RUN mkdir -p /go
 ENV GOPATH /go
 ENV PATH /usr/local/bin:/usr/bin:/bin:/sbin:/usr/local/go/bin
 
-# create /var/log/deis for holding logs (access via bind mount)
-RUN mkdir -p /var/log/deis
+# create /var/log/builtdock for holding logs (access via bind mount)
+RUN mkdir -p /var/log/builtdock
 
 # prepare execution environment
 WORKDIR /app

@@ -12,7 +12,7 @@ import (
 	"syscall"
 )
 
-const logRoot = "/var/log/deis"
+const logRoot = "/var/log/builtdock"
 
 type handler struct {
 	// To simplify implementation of our handler we embed helper

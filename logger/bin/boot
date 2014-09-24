@@ -16,7 +16,7 @@ export ETCD_PATH=${ETCD_PATH:-/builtdock/logs}
 export ETCD_TTL=${ETCD_TTL:-10}
 
 # fix perms on log directory
-chmod 755 /var/log/deis
+chmod 755 /var/log/builtdock
 
 # spawn the service in the background
 /go/bin/syslogd &

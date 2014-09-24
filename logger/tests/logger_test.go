@@ -16,7 +16,7 @@ func TestLogger(t *testing.T) {
 	dockercli.RunTestEtcd(t, etcdName, etcdPort)
 	defer cli.CmdRm("-f", etcdName)
 	dockercli.RunDeisDataTest(t, "--name", "deis-logger-data",
-		"-v", "/var/log/deis", "builtdock/base", "/bin/true")
+		"-v", "/var/log/builtdock", "builtdock/base", "/bin/true")
 	ipaddr, port := utils.HostAddress(), utils.RandomPort()
 	fmt.Printf("--- Run builtdock/logger:%s at %s:%s\n", tag, ipaddr, port)
 	name := "deis-logger-" + tag
