@@ -6,9 +6,9 @@ Let's build a Deis cluster in Google's Compute Engine!
 
 This assumes you have a couple of items installed already:
 
-* [deisctl](https://github.com/deis/deisctl)
+* [deisctl](https://github.com/builtdock/deisctl)
 * `git` (Available via Homebrew or Xcode Command Line Tools)
-* A clone of the Deis repository (`git clone https://github.com/deis/deis.git`)
+* A clone of the Deis repository (`git clone https://github.com/builtdock/deis.git`)
 * You are running commands from the a cloned `deis` folder (`cd deis` after cloning)
 
 ## Google
@@ -81,7 +81,7 @@ Finally, create the `gce-user-data` file:
 
 ```console
 $ ./create-gce-user-data $(curl -s https://discovery.etcd.io/new)
-Wrote file /Users/andy/Projects/deis/contrib/gce/gce-user-data with discovery URL https://discovery.etcd.io/ca4af6f7534f52055e889fddc8c9c4ae
+Wrote file /Users/andy/Projects/builtdock/contrib/gce/gce-user-data with discovery URL https://discovery.etcd.io/ca4af6f7534f52055e889fddc8c9c4ae
 ```
 
 We should have a `gce-user-data` file ready to launch CoreOS nodes with.
@@ -365,7 +365,7 @@ Uploading andy to Deis...done
 Creating an application requires that application be housed under git already. Clone an example application and deploy it:
 
 ```console
-$ git clone https://github.com/deis/example-ruby-sinatra.git
+$ git clone https://github.com/builtdock/example-ruby-sinatra.git
 Cloning into 'example-ruby-sinatra'...
 remote: Counting objects: 98, done.
 remote: Compressing objects: 100% (50/50), done.
@@ -415,7 +415,7 @@ Total 98 (delta 42), reused 0 (delta 0)
 remote: -----> Building Docker image
 remote: Sending build context to Docker daemon 11.77 MB
 remote: Sending build context to Docker daemon
-remote: Step 0 : FROM deis/slugrunner
+remote: Step 0 : FROM builtdock/slugrunner
 remote:  ---> f607bc8783a5
 remote: Step 1 : RUN mkdir -p /app
 remote:  ---> Running in dd1cb10534c0

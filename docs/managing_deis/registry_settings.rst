@@ -22,10 +22,10 @@ The following etcd keys are set by the registry component, typically in its /bin
 ===========================              =================================================================================
 setting                                  description
 ===========================              =================================================================================
-/deis/registry/host                      IP address of the host running registry
-/deis/registry/port                      port used by the registry service (default: 5000)
-/deis/registry/protocol                  protocol for registry (default: http)
-/deis/registry/secretKey                 used for secrets (default: randomly generated)
+/builtdock/registry/host                      IP address of the host running registry
+/builtdock/registry/port                      port used by the registry service (default: 5000)
+/builtdock/registry/protocol                  protocol for registry (default: http)
+/builtdock/registry/secretKey                 used for secrets (default: randomly generated)
 ===========================              =================================================================================
 
 Settings used by registry
@@ -35,8 +35,8 @@ The following etcd keys are used by the registry component.
 ====================================      ======================================================
 setting                                   description
 ====================================      ======================================================
-/deis/cache/host                          host of the cache component (set by cache)
-/deis/cache/port                          port of the cache component (set by cache)
+/builtdock/cache/host                          host of the cache component (set by cache)
+/builtdock/cache/port                          port of the cache component (set by cache)
 ====================================      ======================================================
 
 The Deis registry component inherits from the Docker registry container, so additional configuration
@@ -49,17 +49,17 @@ supplied with Deis:
 
 .. code-block:: console
 
-    $ etcdctl set /deis/registry/image myaccount/myimage:latest
+    $ etcdctl set /builtdock/registry/image myaccount/myimage:latest
 
 This will pull the image from the public Docker registry. You can also pull from a private
 registry:
 
 .. code-block:: console
 
-    $ etcdctl set /deis/registry/image registry.mydomain.org:5000/myaccount/myimage:latest
+    $ etcdctl set /builtdock/registry/image registry.mydomain.org:5000/myaccount/myimage:latest
 
 Be sure that your custom image functions in the same way as the `stock registry image`_ shipped with
 Deis. Specifically, ensure that it sets and reads appropriate etcd keys.
 
-.. _`stock registry image`: https://github.com/deis/deis/tree/master/registry
+.. _`stock registry image`: https://github.com/builtdock/builtdock/tree/master/registry
 .. _`README`: https://github.com/dotcloud/docker-registry/blob/master/README.md

@@ -82,7 +82,7 @@ Track changes to your application using ``deis releases``.
     v4      3 minutes ago                     gabrtv deployed d3ccc05
     v3      1 hour 17 minutes ago             gabrtv added DATABASE_URL
     v2      6 hours 2 minutes ago             gabrtv deployed 7cb3321
-    v1      6 hours 2 minutes ago             gabrtv deployed deis/helloworld
+    v1      6 hours 2 minutes ago             gabrtv deployed builtdock/helloworld
 
 Rollback the Application
 ------------------------
@@ -99,7 +99,7 @@ Use ``deis rollback`` to revert to a previous release.
     v4      4 minutes ago                     gabrtv deployed d3ccc05
     v3      1 hour 18 minutes ago             gabrtv added DATABASE_URL
     v2      6 hours 2 minutes ago             gabrtv deployed 7cb3321
-    v1      6 hours 3 minutes ago             gabrtv deployed deis/helloworld
+    v1      6 hours 3 minutes ago             gabrtv deployed builtdock/helloworld
 
 .. note::
 

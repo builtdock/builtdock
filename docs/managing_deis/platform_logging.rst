@@ -16,4 +16,4 @@ to send service log output to Papertrail:
 
     journalctl -o short -f | ncat --udp logs.papertrailapp.com 34000
 
-.. _`#980`: https://github.com/deis/deis/issues/980
+.. _`#980`: https://github.com/builtdock/deis/issues/980

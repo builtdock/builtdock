@@ -12,7 +12,7 @@ import (
 	"testing"
 	"text/template"
 
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 // A test case is a relative directory plus a command that is expected to
@@ -61,7 +61,7 @@ deis init dev {{.Domain}} --hosts={{.Hosts}} --auth={{.SSHKey}}
 	// Clone the example app git repository locally.
 	{"", `
 if [ ! -d ./{{.ExampleApp}} ]; then
-  git clone https://github.com/deis/{{.ExampleApp}}.git
+  git clone https://github.com/builtdock/{{.ExampleApp}}.git
 fi
 `},
 	// Remove the stale "deis" git remote if it exists.

@@ -5,7 +5,7 @@
 echo Testing ${DEIS_TEST_APP?}...
 THIS_DIR=$(cd $(dirname $0); pwd)  # absolute path
 
-cd ${GOPATH?}/src/github.com/deis/deis
+cd ${GOPATH?}/src/github.com/builtdock/deis
 echo HOST_IPADDR=${HOST_IPADDR?}
 echo DEISCTL_TUNNEL=${DEISCTL_TUNNEL?}
 

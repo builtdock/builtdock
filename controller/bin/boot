@@ -12,7 +12,7 @@ set -eo pipefail
 # configure etcd
 export ETCD_PORT=${ETCD_PORT:-4001}
 export ETCD="$HOST:$ETCD_PORT"
-export ETCD_PATH=${ETCD_PATH:-/deis/controller}
+export ETCD_PATH=${ETCD_PATH:-/builtdock/controller}
 export ETCD_TTL=${ETCD_TTL:-10}
 
 # wait for etcd to be available
@@ -38,7 +38,7 @@ etcd_set_default builderKey ${DEIS_BUILDER_KEY:-`openssl rand -base64 64 | tr -d
 etcd_set_default registrationEnabled 1
 etcd_set_default webEnabled 0
 # create path for application metadata
-etcd_safe_mkdir /deis/services
+etcd_safe_mkdir /builtdock/services
 
 # wait for confd to run once and install initial templates
 until confd -onetime -node $ETCD -config-file /app/confd.toml 2>/dev/null; do

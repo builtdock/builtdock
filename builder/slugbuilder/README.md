@@ -14,7 +14,7 @@ into a gzipped tarball ready to be run somewhere.
 
 First, you need Docker. Then you can either pull the image from the public index:
 
-	$ docker pull deis/slugbuilder
+	$ docker pull builtdock/slugbuilder
 
 Or you can build from this source:
 
@@ -24,7 +24,7 @@ Or you can build from this source:
 When you run the container, it always expects a tar of your app source to be passed via stdin. So
 let's run it from a git repo and use `git archive` to produce a tar:
 
-	$ id=$(git archive master | docker run -i -a stdin deis/slugbuilder)
+	$ id=$(git archive master | docker run -i -a stdin builtdock/slugbuilder)
 	$ docker wait $id
 	$ docker cp $id:/tmp/slug.tgz .
 
@@ -33,11 +33,11 @@ artifact into the current directory. If we attached to the container with `docke
 also see the build output as you would with Heroku. We can also *just* see the build output by
 running it with stdout:
 
-	$ git archive master | docker run -i -a stdin -a stdout deis/slugbuilder
+	$ git archive master | docker run -i -a stdin -a stdout builtdock/slugbuilder
 
 We still have to look up the id and copy the slug out of the container, but there's an easier way!
 
-	$ git archive master | docker run -i -a stdin -a stdout deis/slugbuilder - > myslug.tgz
+	$ git archive master | docker run -i -a stdin -a stdout builtdock/slugbuilder - > myslug.tgz
 
 By running with the `-` argument, it will send all build output to stderr (which we didn't attach
 here) and then spit out the slug to stdout, which as you can see we can easily redirect into a
@@ -46,7 +46,7 @@ file.
 Lastly, you can also have it PUT the slug somewhere via HTTP if you give it a URL as an argument.
 This lets us specify a place to put it *and* get the build output via stdout:
 
-	$ git archive master | docker run -i -a stdin -a stdout deis/slugbuilder http://fileserver/path/for/myslug.tgz
+	$ git archive master | docker run -i -a stdin -a stdout builtdock/slugbuilder http://fileserver/path/for/myslug.tgz
 
 ## Caching
 
@@ -54,7 +54,7 @@ To speed up slug building, it's best to mount a volume specific to your app at `
 example, if you wanted to keep the cache for this app on your host at `/tmp/app-cache`, you'd mount
 a read-write volume by running docker with this added `-v /tmp/app-cache:/tmp/cache:rw` option:
 
-	docker run -v /tmp/app-cache:/tmp/cache:rw -i -a stdin -a stdout deis/slugbuilder
+	docker run -v /tmp/app-cache:/tmp/cache:rw -i -a stdin -a stdout builtdock/slugbuilder
 
 
 ## Buildpacks
@@ -64,7 +64,7 @@ can change the buildpacks.txt file and rebuild the container to create a version
 more/less buildpacks than we do here. You can also bind mount your own directory of buildpacks if
 you'd like:
 
-	docker run -v /my/buildpacks:/tmp/buildpacks:ro -i -a stdin -a stdout deis/slugbuilder
+	docker run -v /my/buildpacks:/tmp/buildpacks:ro -i -a stdin -a stdout builtdock/slugbuilder
 
 ## Base Environment
 

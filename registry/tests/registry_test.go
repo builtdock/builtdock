@@ -4,19 +4,19 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/deis/deis/tests/dockercli"
-	"github.com/deis/deis/tests/etcdutils"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/dockercli"
+	"github.com/builtdock/builtdock/tests/etcdutils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 func TestRegistry(t *testing.T) {
 	var err error
 	setkeys := []string{
-		"/deis/cache/host",
-		"/deis/cache/port",
+		"/builtdock/cache/host",
+		"/builtdock/cache/port",
 	}
 	setdir := []string{
-		"/deis/cache",
+		"/builtdock/cache",
 	}
 	tag, etcdPort := utils.BuildTag(), utils.RandomPort()
 	etcdName := "deis-etcd-" + tag
@@ -26,9 +26,9 @@ func TestRegistry(t *testing.T) {
 	handler := etcdutils.InitEtcd(setdir, setkeys, etcdPort)
 	etcdutils.PublishEtcd(t, handler)
 	dockercli.RunDeisDataTest(t, "--name", "deis-registry-data",
-		"-v", "/data", "deis/base", "/bin/true")
+		"-v", "/data", "builtdock/base", "/bin/true")
 	host, port := utils.HostAddress(), utils.RandomPort()
-	fmt.Printf("--- Run deis/registry:%s at %s:%s\n", tag, host, port)
+	fmt.Printf("--- Run builtdock/registry:%s at %s:%s\n", tag, host, port)
 	name := "deis-registry-" + tag
 	defer cli.CmdRm("-f", name)
 	go func() {
@@ -41,7 +41,7 @@ func TestRegistry(t *testing.T) {
 			"-e", "HOST="+host,
 			"-e", "ETCD_PORT="+etcdPort,
 			"--volumes-from", "deis-registry-data",
-			"deis/registry:"+tag)
+			"builtdock/registry:"+tag)
 	}()
 	dockercli.PrintToStdout(t, stdout, stdoutPipe, "Booting")
 	if err != nil {

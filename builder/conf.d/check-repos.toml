@@ -5,7 +5,7 @@ uid = 0
 gid = 0
 mode  = "0755"
 keys = [
-  "/deis/services",
+  "/builtdock/services",
 ]
 reload_cmd = "/home/git/check-repos"
 check_cmd = "/app/bin/check {{ .src }}"

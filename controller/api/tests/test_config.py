@@ -198,7 +198,7 @@ class ConfigTest(TransactionTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('memory', response.data)
         self.assertEqual(json.loads(response.data['memory']), {})
-        # regression test for https://github.com/deis/deis/issues/1563
+        # regression test for https://github.com/builtdock/deis/issues/1563
         self.assertNotIn('"', response.data['memory'])
         # set an initial limit
         mem = {'web': '1G'}
@@ -235,7 +235,7 @@ class ConfigTest(TransactionTestCase):
         self.assertEqual(memory['worker'], '512M')
         self.assertIn('web', memory)
         self.assertEqual(memory['web'], '1G')
-        # regression test for https://github.com/deis/deis/issues/1613
+        # regression test for https://github.com/builtdock/deis/issues/1613
         # ensure that config:set doesn't wipe out previous limits
         body = {'values': json.dumps({'NEW_URL2': 'http://localhost:8080/'})}
         response = self.client.post(url, json.dumps(body), content_type='application/json')
@@ -278,7 +278,7 @@ class ConfigTest(TransactionTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('cpu', response.data)
         self.assertEqual(json.loads(response.data['cpu']), {})
-        # regression test for https://github.com/deis/deis/issues/1563
+        # regression test for https://github.com/builtdock/deis/issues/1563
         self.assertNotIn('"', response.data['cpu'])
         # set an initial limit
         body = {'cpu': json.dumps({'web': '1024'})}

@@ -17,4 +17,4 @@ A requirement for this monitoring system would be to:
 
 Platform monitoring is an ongoing discussion, and feedback is much appreciated in issue `#981`_.
 
-.. _`#981`: https://github.com/deis/deis/issues/981
+.. _`#981`: https://github.com/builtdock/deis/issues/981

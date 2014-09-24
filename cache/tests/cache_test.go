@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/deis/deis/tests/dockercli"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/dockercli"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 func TestCache(t *testing.T) {
@@ -17,7 +17,7 @@ func TestCache(t *testing.T) {
 	dockercli.RunTestEtcd(t, etcdName, etcdPort)
 	defer cli.CmdRm("-f", etcdName)
 	ipaddr, port := utils.HostAddress(), utils.RandomPort()
-	fmt.Printf("--- Run deis/cache:%s at %s:%s\n", tag, ipaddr, port)
+	fmt.Printf("--- Run builtdock/cache:%s at %s:%s\n", tag, ipaddr, port)
 	name := "deis-cache-" + tag
 	defer cli.CmdRm("-f", name)
 	go func() {
@@ -29,7 +29,7 @@ func TestCache(t *testing.T) {
 			"-e", "PUBLISH="+port,
 			"-e", "HOST="+ipaddr,
 			"-e", "ETCD_PORT="+etcdPort,
-			"deis/cache:"+tag)
+			"builtdock/cache:"+tag)
 	}()
 	dockercli.PrintToStdout(t, stdout, stdoutPipe, "started")
 	if err != nil {

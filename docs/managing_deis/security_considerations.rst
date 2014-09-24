@@ -35,4 +35,4 @@ each scheduling cluster. This enables Deis to use other scheduling algorithms, a
 a clean network segregation. This will alleviate the concern that application containers have access
 to the core Deis etcd installation, but access policies between clusters will need to be introduced.
 
-.. _`#986`: https://github.com/deis/deis/issues/986
+.. _`#986`: https://github.com/builtdock/deis/issues/986

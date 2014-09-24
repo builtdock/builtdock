@@ -1,6 +1,6 @@
 all:
-	docker build -t deis/slugbuilder .
+	docker build -t builtdock/slugbuilder .
 
 .PHONY: clean
 clean:
-	docker rmi -f deis/slugbuilder
+	docker rmi -f builtdock/slugbuilder

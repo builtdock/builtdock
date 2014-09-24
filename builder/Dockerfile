@@ -36,7 +36,7 @@ RUN chown -R $GITUSER:$GITUSER $GITHOME
 RUN echo "%git    ALL=(ALL:ALL) NOPASSWD:/home/git/builder" >> /etc/sudoers
 
 # HACK: import progrium/cedarish as a tarball
-# see https://github.com/deis/deis/issues/1027
+# see https://github.com/builtdock/deis/issues/1027
 RUN wget -O /progrium_cedarish.tar --progress=dot:giga \
         https://s3-us-west-2.amazonaws.com/opdemand/progrium_cedarish_cedar.tar
 

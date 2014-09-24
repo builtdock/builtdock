@@ -12,7 +12,7 @@ set -eo pipefail
 # configure etcd
 export ETCD_PORT=${ETCD_PORT:-4001}
 export ETCD="$HOST:$ETCD_PORT"
-export ETCD_PATH=${ETCD_PATH:-/deis/logs}
+export ETCD_PATH=${ETCD_PATH:-/builtdock/logs}
 export ETCD_TTL=${ETCD_TTL:-10}
 
 # fix perms on log directory

@@ -102,7 +102,7 @@ Run the [cloudformation provision script][pro-script] to spawn a new CoreOS clus
 $ cd contrib/ec2
 $ ./provision-ec2-cluster.sh
 {
-    "StackId": "arn:aws:cloudformation:us-west-1:413516094235:stack/deis/9699ec20-c257-11e3-99eb-50fa01cd4496"
+    "StackId": "arn:aws:cloudformation:us-west-1:413516094235:stack/builtdock/9699ec20-c257-11e3-99eb-50fa01cd4496"
 }
 Your Deis cluster has successfully deployed.
 Please wait for all instances to come up as "running" before continuing.
@@ -126,7 +126,7 @@ to 1200 seconds to match the timeout on the router and application unit files.
 
 ## Configure DNS
 While you can reference the controller and hosted applications with public hostnames provided by EC2, it is recommended for ease-of-use that
-you configure your own DNS records using a domain you own. See [Configuring DNS](http://docs.deis.io/en/latest/installing_deis/configure-dns/) for details.
+you configure your own DNS records using a domain you own. See [Configuring DNS](http://docs.deis.io/en/latest/installing_builtdock/configure-dns/) for details.
 
 ## Use Deis!
 After that, register with Deis!

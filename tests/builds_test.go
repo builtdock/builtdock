@@ -11,7 +11,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 var (
@@ -74,7 +74,7 @@ func buildsListTest(t *testing.T, params *utils.DeisTestConfig) {
 // to promote a build from an existing docker image.
 func buildsCreateTest(t *testing.T, params *utils.DeisTestConfig) {
 	params.AppName = "deispullsample"
-	params.ImageID = "deis/example-dockerfile-python:latest"
+	params.ImageID = "builtdock/example-dockerfile-python:latest"
 	params.ExampleApp = "example-deis-pull"
 	if err := os.Mkdir(params.ExampleApp, 0755); err != nil {
 		t.Fatal(err)

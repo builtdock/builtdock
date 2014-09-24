@@ -4,27 +4,27 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/deis/deis/tests/dockercli"
-	"github.com/deis/deis/tests/etcdutils"
-	"github.com/deis/deis/tests/mock"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/dockercli"
+	"github.com/builtdock/builtdock/tests/etcdutils"
+	"github.com/builtdock/builtdock/tests/mock"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 func TestController(t *testing.T) {
 	var err error
 	setkeys := []string{
-		"/deis/registry/protocol",
-		"deis/registry/host",
-		"/deis/registry/port",
-		"/deis/cache/host",
-		"/deis/cache/port",
+		"/builtdock/registry/protocol",
+		"builtdock/registry/host",
+		"/builtdock/registry/port",
+		"/builtdock/cache/host",
+		"/builtdock/cache/port",
 	}
 	setdir := []string{
-		"/deis/controller",
-		"/deis/cache",
-		"/deis/database",
-		"/deis/registry",
-		"/deis/domains",
+		"/builtdock/controller",
+		"/builtdock/cache",
+		"/builtdock/database",
+		"/builtdock/registry",
+		"/builtdock/domains",
 	}
 	tag, etcdPort := utils.BuildTag(), utils.RandomPort()
 	etcdName := "deis-etcd-" + tag
@@ -36,7 +36,7 @@ func TestController(t *testing.T) {
 	mock.RunMockDatabase(t, tag, etcdPort, utils.RandomPort())
 	defer cli.CmdRm("-f", "deis-test-database-"+tag)
 	host, port := utils.HostAddress(), utils.RandomPort()
-	fmt.Printf("--- Run deis/controller:%s at %s:%s\n", tag, host, port)
+	fmt.Printf("--- Run builtdock/controller:%s at %s:%s\n", tag, host, port)
 	name := "deis-controller-" + tag
 	defer cli.CmdRm("-f", name)
 	go func() {
@@ -48,7 +48,7 @@ func TestController(t *testing.T) {
 			"-e", "PUBLISH="+port,
 			"-e", "HOST="+host,
 			"-e", "ETCD_PORT="+etcdPort,
-			"deis/controller:"+tag)
+			"builtdock/controller:"+tag)
 	}()
 	dockercli.PrintToStdout(t, stdout, stdoutPipe, "Booting")
 	if err != nil {

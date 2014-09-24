@@ -30,7 +30,7 @@ deis Repo
 - Merge git master into release branch locally
     * ``git checkout release && git merge master``
 - Edit contrib/coreos/user-data and update ``DEIS_RELEASE`` to ":vX.Y.Z"
-- Commit and push the deis/deis release and tag
+- Commit and push the builtdock/deis release and tag
     * remove "-dev" from __version__ fields in Python packages
     * remove "-dev" from Version constant in version/version.go
     * ``git commit -a -m 'chore(release): update version to vX.Y.Z'``
@@ -56,13 +56,13 @@ deisctl repo
 - Move any `deisctl open issues`_ from the current release to the next milestone
 - Close the current `deisctl milestone`_
 - Update CHANGELOG.md using the `changelog script`_ in the deis project:
-    * ``../deis/contrib/util/generate-changelog.sh vU.V.W vX.Y.Z | cat - CHANGELOG.md > tmp && mv tmp CHANGELOG.md``
+    * ``../builtdock/contrib/util/generate-changelog.sh vU.V.W vX.Y.Z | cat - CHANGELOG.md > tmp && mv tmp CHANGELOG.md``
       substituting the previous release for vU.V.W and the current one for vX.Y.Z.
     * proofread the new CHANGELOG.md to ensure it was generated correctly
     * ``git add CHANGELOG.md && git commit -m "docs(CHANGELOG): update for v.X.Y.Z"``
 - Continuous delivery jobs at ci.deis.io will update the deisctl installer. Double-check that the
   current binaries are publicly downloadable from the opdemand S3 bucket.
-- Commit and push the deis/deisctl release and tag
+- Commit and push the builtdock/deisctl release and tag
     * remove "-dev" from the deis-version file in the project root
     * remove "-dev" from the string resource in deisctl.go
     * remove "-dev" from the installer links in README.md
@@ -76,7 +76,7 @@ deisctl repo
    * ``git commit -a -m 'chore(release): update version to vR.S.T-dev'`` (**next** version)
    * ``git push origin master``
 - Update deis.io installer script to point to new -dev version
-   * update https://github.com/deis/deis.io/blob/gh-pages/deisctl/install.sh to point to new
+   * update https://github.com/builtdock/deis.io/blob/gh-pages/deisctl/install.sh to point to new
      -dev release version
 
 Documentation
@@ -94,27 +94,27 @@ Documentation
     * the zipfile will be at **docs/docs.zip**
     * log in to http://pypi.python.org/ and use the web form at the
       `Deis Pypi`_ page to upload the zipfile
-- Check documentation for deis/* projects at the `Docker Hub`_
-    * click "Settings" for each project (deis/controller, deis/cache, etc.)
+- Check documentation for builtdock/* projects at the `Docker Hub`_
+    * click "Settings" for each project (builtdock/controller, builtdock/cache, etc.)
     * paste the contents of each README.md into the "long description" field if
       there are discrepencies. (These don't automatically sync up after the
       Trusted Build is first created.)
 - Create release notes docs
     * follow the format of previous `release notes`_
     * summarize all work done since the previous release
-    * visit all opdemand/* and deis/* project issues to make sure we don't
+    * visit all opdemand/* and builtdock/* project issues to make sure we don't
       miss any contributors for the "Community Shout-Outs" section
     * include "what's next" and "future directions" sections
-    * add Markdown version of release notes to `deis/deis.io`_ website project
+    * add Markdown version of release notes to `builtdock/deis.io`_ website project
 
 
-.. _`deis milestone`: https://github.com/deis/deis/issues/milestones
-.. _`deis open issues`: https://github.com/deis/deis/issues?state=open
-.. _`deisctl milestone`: https://github.com/deis/deisctl/issues/milestones
-.. _`deisctl open issues`: https://github.com/deis/deisctl/issues?state=open
-.. _`changelog script`: https://github.com/deis/deis/blob/master/contrib/util/generate-changelog.sh
-.. _`release notes`: https://github.com/deis/deis/releases
+.. _`deis milestone`: https://github.com/builtdock/deis/issues/milestones
+.. _`deis open issues`: https://github.com/builtdock/deis/issues?state=open
+.. _`deisctl milestone`: https://github.com/builtdock/deisctl/issues/milestones
+.. _`deisctl open issues`: https://github.com/builtdock/deisctl/issues?state=open
+.. _`changelog script`: https://github.com/builtdock/builtdock/blob/master/contrib/util/generate-changelog.sh
+.. _`release notes`: https://github.com/builtdock/builtdock/releases
 .. _`aws-eng S3 bucket`: https://s3-us-west-2.amazonaws.com/opdemand/
-.. _`Deis Pypi`:  https://pypi.python.org/pypi/deis/
+.. _`Deis Pypi`:  https://pypi.python.org/pypi/builtdock/
 .. _`Docker Hub`: https://hub.docker.com/
-.. _`deis/deis.io`: https://github.com/deis/deis.io
+.. _`builtdock/deis.io`: https://github.com/builtdock/deis.io

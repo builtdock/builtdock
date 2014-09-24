@@ -22,8 +22,8 @@ The following etcd keys are set by the cache component, typically in its /bin/bo
 ================              ==============================================
 setting                       description
 ================              ==============================================
-/deis/cache/host              IP address of the host running cache
-/deis/cache/port              port used by the cache service (default: 6379)
+/builtdock/cache/host              IP address of the host running cache
+/builtdock/cache/port              port used by the cache service (default: 6379)
 ================              ==============================================
 
 Settings used by cache
@@ -37,16 +37,16 @@ supplied with Deis:
 
 .. code-block:: console
 
-    $ etcdctl set /deis/cache/image myaccount/myimage:latest
+    $ etcdctl set /builtdock/cache/image myaccount/myimage:latest
 
 This will pull the image from the public Docker registry. You can also pull from a private
 registry:
 
 .. code-block:: console
 
-    $ etcdctl set /deis/cache/image registry.mydomain.org:5000/myaccount/myimage:latest
+    $ etcdctl set /builtdock/cache/image registry.mydomain.org:5000/myaccount/myimage:latest
 
 Be sure that your custom image functions in the same way as the `stock cache image`_ shipped with
 Deis. Specifically, ensure that it sets and reads appropriate etcd keys.
 
-.. _`stock cache image`: https://github.com/deis/deis/tree/master/cache
+.. _`stock cache image`: https://github.com/builtdock/builtdock/tree/master/cache

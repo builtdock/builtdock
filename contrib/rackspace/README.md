@@ -81,7 +81,7 @@ $ deisctl scale router=2
 ```
 
 ### Configure DNS
-You'll need to configure DNS records so you can access applications hosted on Deis. See [Configuring DNS](http://docs.deis.io/en/latest/installing_deis/configure-dns/) for details.
+You'll need to configure DNS records so you can access applications hosted on Deis. See [Configuring DNS](http://docs.deis.io/en/latest/installing_builtdock/configure-dns/) for details.
 
 ### Configure Load Balancer
 You'll need to create two load balancers on Rackspace to handle your cluster.

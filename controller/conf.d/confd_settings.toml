@@ -5,11 +5,11 @@ uid = 1000
 gid = 1000
 mode  = "0640"
 keys = [
-  "/deis/controller",
-  "/deis/cache",
-  "/deis/database",
-  "/deis/registry",
-  "/deis/domains",
+  "/builtdock/controller",
+  "/builtdock/cache",
+  "/builtdock/database",
+  "/builtdock/registry",
+  "/builtdock/domains",
 ]
 check_cmd = "/app/bin/check {{ .src }}"
 reload_cmd = "/app/bin/reload"

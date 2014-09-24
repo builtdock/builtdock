@@ -2,15 +2,15 @@
 
 Deis (pronounced DAY-iss) is an open source PaaS that makes it easy to deploy and manage applications on your own servers. Deis builds upon [Docker](http://docker.io/) and [CoreOS](http://coreos.com) to provide a lightweight PaaS with a [Heroku-inspired](http://heroku.com) workflow.
 
-[![Current Release](http://img.shields.io/badge/release-v0.12.0-blue.svg)](https://github.com/deis/deis/releases/tag/v0.12.0)
+[![Current Release](http://img.shields.io/badge/release-v0.12.0-blue.svg)](https://github.com/builtdock/builtdock/releases/tag/v0.12.0)
 
 ![Deis Graphic](https://s3-us-west-2.amazonaws.com/deis-images/deis-graphic.png)
 
-Deis is pre-release software. The current release is [v0.12.0](https://github.com/deis/deis/tree/v0.12.0). Until there is a stable release, we recommend you check out the latest ["master" branch](https://github.com/deis/deis) code and refer to the [latest documentation](http://docs.deis.io/en/latest/).  Upgrading from a previous Deis release? See [Upgrading Deis](http://docs.deis.io/en/latest/installing_deis/upgrading-deis/) for additional information.
+Deis is pre-release software. The current release is [v0.12.0](https://github.com/builtdock/builtdock/tree/v0.12.0). Until there is a stable release, we recommend you check out the latest ["master" branch](https://github.com/builtdock/deis) code and refer to the [latest documentation](http://docs.deis.io/en/latest/).  Upgrading from a previous Deis release? See [Upgrading Deis](http://docs.deis.io/en/latest/installing_builtdock/upgrading-builtdock/) for additional information.
 
 # Deploying Deis
 
-Deis is a set of Docker containers that can be deployed anywhere including public cloud, private cloud, bare metal or your workstation. Decide where you'd like to deploy Deis, then follow the deployment-specific documentation for [Rackspace](contrib/rackspace/README.md), [EC2](contrib/ec2/README.md), [DigitalOcean](contrib/digitalocean/README.md), [Google Compute Engine](contrib/gce/README.md) or [bare-metal](contrib/bare-metal/README.md) provisioning. Want to see a particular platform supported? Please open an [issue](https://github.com/deis/deis/issues/new).
+Deis is a set of Docker containers that can be deployed anywhere including public cloud, private cloud, bare metal or your workstation. Decide where you'd like to deploy Deis, then follow the deployment-specific documentation for [Rackspace](contrib/rackspace/README.md), [EC2](contrib/ec2/README.md), [DigitalOcean](contrib/digitalocean/README.md), [Google Compute Engine](contrib/gce/README.md) or [bare-metal](contrib/bare-metal/README.md) provisioning. Want to see a particular platform supported? Please open an [issue](https://github.com/builtdock/deis/issues/new).
 
 Trying out Deis? Continue following these instructions for a local installation using Vagrant.
 
@@ -51,7 +51,7 @@ $ ssh-add ~/.vagrant.d/insecure_private_key
 
 ## Provision Deis
 
-Install the [deisctl utility](https://github.com/deis/deisctl#installation) used to provision and operate Deis.
+Install the [deisctl utility](https://github.com/builtdock/deisctl#installation) used to provision and operate Deis.
 
 ```console
 $ curl -sSL http://deis.io/deisctl/install.sh | sudo sh
@@ -72,11 +72,11 @@ $ deisctl start platform
 
 This can take some time - the **builder** and **registry** components must download and install the beefy Heroku cedar stack.  Grab some more coffee!
 
-Your Deis platform should be accessible at `deis.local3.deisapp.com`.  For clusters on other platforms see our guide to [Configuring DNS](http://docs.deis.io/en/latest/installing_deis/configure-dns/).
+Your Deis platform should be accessible at `deis.local3.deisapp.com`.  For clusters on other platforms see our guide to [Configuring DNS](http://docs.deis.io/en/latest/installing_builtdock/configure-dns/).
 
 ## Install the Deis Client
 
-If you're using the latest Deis release, use `pip install --upgrade deis` to install the latest [Deis Client](https://pypi.python.org/pypi/deis/) or download [pre-compiled binaries](https://github.com/deis/deis/tree/master/client#get-started).
+If you're using the latest Deis release, use `pip install --upgrade deis` to install the latest [Deis Client](https://pypi.python.org/pypi/builtdock/) or download [pre-compiled binaries](https://github.com/builtdock/builtdock/tree/master/client#get-started).
 
 If you're working off master, precompiled binaries are likely out of date. You should either symlink the python file directly or build a local copy of the client:
 
@@ -119,9 +119,9 @@ The `dev` cluster will be used as the default cluster for future `deis` commands
 
 Deis supports 3 deployment workflows:
 
- * Heroku Buildpacks via `git push` -- Learn more about [Using Buildpacks](http://docs.deis.io/en/latest/using_deis/using-buildpacks/)
- * Dockerfiles via `git push` -- Learn more about [Using Dockerfiles](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/)
- * Docker Images via `deis pull` -- Learn more about [Using Docker Images](http://docs.deis.io/en/latest/using_deis/using-docker-images/)
+ * Heroku Buildpacks via `git push` -- Learn more about [Using Buildpacks](http://docs.deis.io/en/latest/using_builtdock/using-buildpacks/)
+ * Dockerfiles via `git push` -- Learn more about [Using Dockerfiles](http://docs.deis.io/en/latest/using_builtdock/using-dockerfiles/)
+ * Docker Images via `deis pull` -- Learn more about [Using Docker Images](http://docs.deis.io/en/latest/using_builtdock/using-docker-images/)
 
 As an example, we will walk through deploying a Ruby application using the Heroku Buildpack workflow.
 
@@ -129,7 +129,7 @@ As an example, we will walk through deploying a Ruby application using the Herok
 Clone an example Ruby application:
 
 ```console
-$ git clone https://github.com/deis/example-ruby-sinatra.git
+$ git clone https://github.com/builtdock/example-ruby-sinatra.git
 $ cd example-ruby-sinatra
 ```
 
@@ -211,7 +211,7 @@ Use `deisctl status <component>` to view the status of the component.  You can a
 The most common cause of services failing to start are sporadic issues with Docker Hub.  We are exploring workarounds and are working with the Docker team to improve Docker Hub reliability. In the meantime, try starting the service again with `deisctl restart <component>`.
 
 ### Any other issues
-Running into something not detailed here? Please [open an issue](https://github.com/deis/deis/issues/new) or hop into [#deis](https://botbot.me/freenode/deis/) and we'll help!
+Running into something not detailed here? Please [open an issue](https://github.com/builtdock/deis/issues/new) or hop into [#deis](https://botbot.me/freenode/builtdock/) and we'll help!
 
 ## License
 

@@ -6,15 +6,15 @@ Deis controller, providing a Heroku-inspired PaaS workflow.
 .. image:: https://badge.fury.io/py/deis.png
     :target: http://badge.fury.io/py/deis
 
-.. image:: https://travis-ci.org/deis/deis.png?branch=master
-    :target: https://travis-ci.org/deis/deis
+.. image:: https://travis-ci.org/builtdock/deis.png?branch=master
+    :target: https://travis-ci.org/builtdock/deis
 
-.. image:: https://pypip.in/d/deis/badge.png
-    :target: https://pypi.python.org/pypi/deis/
+.. image:: https://pypip.in/d/builtdock/badge.png
+    :target: https://pypi.python.org/pypi/builtdock/
     :alt: Downloads
 
-.. image:: https://pypip.in/license/deis/badge.png
-    :target: https://pypi.python.org/pypi/deis/
+.. image:: https://pypip.in/license/builtdock/badge.png
+    :target: https://pypi.python.org/pypi/builtdock/
     :alt: License
 
 What is Deis?
@@ -139,11 +139,11 @@ version of the Deis client for Mac OS X, Linux amd64, or Windows:
 
 To learn more, use ``deis help`` or browse `the documentation`_.
 
-.. _`Install the Client`: http://docs.deis.io/en/latest/using_deis/install-client/
+.. _`Install the Client`: http://docs.deis.io/en/latest/using_builtdock/install-client/
 .. _`Python`: http://www.python.org/
-.. _`Register a User`: http://docs.deis.io/en/latest/using_deis/register-user/
-.. _`Deploy an Application`: http://docs.deis.io/en/latest/using_deis/deploy-application/
-.. _`Manage an Application`: http://docs.deis.io/en/latest/using_deis/manage-application/
+.. _`Register a User`: http://docs.deis.io/en/latest/using_builtdock/register-user/
+.. _`Deploy an Application`: http://docs.deis.io/en/latest/using_builtdock/deploy-application/
+.. _`Manage an Application`: http://docs.deis.io/en/latest/using_builtdock/manage-application/
 .. _`the documentation`: http://docs.deis.io/
 
 

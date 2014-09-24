@@ -1,5 +1,5 @@
-FROM deis/base:latest
-MAINTAINER OpDemand <info@opdemand.com>
+FROM builtdock/base:latest
+MAINTAINER BuiltDock Project <info@builtdock.com>
 
 # build Redis from source
 RUN buildDeps='gcc libc6-dev make curl'; \

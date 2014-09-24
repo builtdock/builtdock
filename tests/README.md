@@ -3,7 +3,7 @@
 This directory contains a [Go](http://golang.org/) package with integration
 tests for the [Deis](http://deis.io/) open source PaaS.
 
-[![GoDoc](https://godoc.org/github.com/deis/deis/tests?status.svg)](https://godoc.org/github.com/deis/deis/tests)
+[![GoDoc](https://godoc.org/github.com/builtdock/builtdock/tests?status.svg)](https://godoc.org/github.com/builtdock/builtdock/tests)
 
 **NOTE**: These integration tests are targeted for use in Deis'
 [continuous integration system](http://ci.deis.io/). The tests currently assume
@@ -13,11 +13,11 @@ fail and could overwrite data.
 
 ## Test Setup
 
-Check out [Deis' source code](https://github.com/deis/deis) into the `$GOPATH`:
+Check out [Deis' source code](https://github.com/builtdock/deis) into the `$GOPATH`:
 
 ```console
-$ go get -u -v github.com/deis/deis
-$ cd $GOPATH/src/github.com/deis/deis/tests
+$ go get -u -v github.com/builtdock/deis
+$ cd $GOPATH/src/github.com/builtdock/builtdock/tests
 ```
 
 Provision a Deis cluster as usual, and ensure that a matching `deis`

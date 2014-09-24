@@ -63,7 +63,7 @@ write_files:
       function nse() {
         sudo nsenter --pid --uts --mount --ipc --net --target $(docker inspect --format="{{ .State.Pid }}" $1)
       }
-  - path: /run/deis/bin/get_image
+  - path: /run/builtdock/bin/get_image
     permissions: '0755'
     content: |
       #!/bin/bash
@@ -72,7 +72,7 @@ write_files:
 
       # if no image was set in etcd, we use the default plus the release string
       if [ $? -ne 0 ]; then
-        RELEASE=`etcdctl get /deis/release 2>/dev/null`
+        RELEASE=`etcdctl get /builtdock/release 2>/dev/null`
 
         # if no release was set in etcd, use the default provisioned with the server
         if [ $? -ne 0 ]; then

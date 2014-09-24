@@ -25,7 +25,7 @@ def parse_args():
     return user, repo, branch, app
 
 
-DOCKERFILE_SHIM = """FROM deis/slugrunner
+DOCKERFILE_SHIM = """FROM builtdock/slugrunner
 RUN mkdir -p /app
 WORKDIR /app
 ENTRYPOINT ["/runner/init"]
@@ -74,9 +74,9 @@ if __name__ == '__main__':
         # some applications do not have a Procfile, so only check for a Dockerfile
         if not os.path.exists(dockerfile):
             if os.path.exists('/buildpacks'):
-                build_cmd = "docker run -i -a stdin {config_env} -v {temp_dir}:/tmp/app -v {cache_dir}:/tmp/cache:rw -v /buildpacks:/tmp/buildpacks deis/slugbuilder".format(**locals())
+                build_cmd = "docker run -i -a stdin {config_env} -v {temp_dir}:/tmp/app -v {cache_dir}:/tmp/cache:rw -v /buildpacks:/tmp/buildpacks builtdock/slugbuilder".format(**locals())
             else:
-                build_cmd = "docker run -i -a stdin {config_env} -v {temp_dir}:/tmp/app -v {cache_dir}:/tmp/cache:rw deis/slugbuilder".format(**locals())
+                build_cmd = "docker run -i -a stdin {config_env} -v {temp_dir}:/tmp/app -v {cache_dir}:/tmp/cache:rw builtdock/slugbuilder".format(**locals())
             # run slugbuilder in the background
             p = subprocess.Popen(build_cmd, shell=True, cwd=repo_dir, stdout=subprocess.PIPE)
             container = p.stdout.read().strip('\n')

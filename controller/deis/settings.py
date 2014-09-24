@@ -259,7 +259,7 @@ ETCD_HOST, ETCD_PORT = os.environ.get('ETCD', '127.0.0.1:4001').split(',')[0].sp
 DEIS_LOG_DIR = os.path.abspath(os.path.join(__file__, '..', '..', 'logs'))
 LOG_LINES = 1000
 TEMPDIR = tempfile.mkdtemp(prefix='deis')
-DEFAULT_BUILD = 'deis/helloworld'
+DEFAULT_BUILD = 'builtdock/helloworld'
 
 # security keys and auth tokens
 SECRET_KEY = os.environ.get('DEIS_SECRET_KEY', 'CHANGEME_sapm$s%upvsw5l_zuy_&29rkywd^78ff(qi')

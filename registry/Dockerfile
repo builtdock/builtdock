@@ -1,5 +1,5 @@
-FROM deis/base:latest
-MAINTAINER OpDemand <info@opdemand.com>
+FROM builtdock/base:latest
+MAINTAINER BuiltDock Project <info@builtdock.com>
 
 # install required packages (copied from dotcloud/docker-registry Dockerfile)
 RUN sed -i 's/main$/main universe/' /etc/apt/sources.list
@@ -13,7 +13,7 @@ RUN wget -qO- https://raw.githubusercontent.com/pypa/pip/1.5.5/contrib/get-pip.p
 RUN useradd -s /bin/bash registry
 
 # add the docker registry source from github
-RUN git clone https://github.com/deis/docker-registry /docker-registry && \
+RUN git clone https://github.com/builtdock/docker-registry /docker-registry && \
     cd /docker-registry && \
     git checkout f93804c && \
     chown -R registry:registry /docker-registry

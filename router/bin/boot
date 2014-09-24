@@ -12,7 +12,7 @@ set -eo pipefail
 # configure etcd
 export ETCD_PORT=${ETCD_PORT:-4001}
 export ETCD="$HOST:$ETCD_PORT"
-export ETCD_PATH=${ETCD_PATH:-/deis/router/$HOST}
+export ETCD_PATH=${ETCD_PATH:-/builtdock/router/$HOST}
 export ETCD_TTL=${ETCD_TTL:-10}
 
 # wait for etcd to be available
@@ -32,10 +32,10 @@ function etcd_set_default {
   etcdctl --no-sync -C $ETCD mk $ETCD_PATH/$1 $2 >/dev/null 2>&1 || true
 }
 
-etcd_safe_mkdir /deis/controller
-etcd_safe_mkdir /deis/services
-etcd_safe_mkdir /deis/domains
-etcd_safe_mkdir /deis/builder
+etcd_safe_mkdir /builtdock/controller
+etcd_safe_mkdir /builtdock/services
+etcd_safe_mkdir /builtdock/domains
+etcd_safe_mkdir /builtdock/builder
 etcd_set_default port ${PORT:-80}
 etcd_set_default gzip on
 etcd_set_default gzipHttpVersion 1.0

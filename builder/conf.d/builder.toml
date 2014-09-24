@@ -5,8 +5,8 @@ uid = 0
 gid = 0
 mode  = "0755"
 keys = [
-  "/deis/controller",
-  "/deis/builder",
-  "/deis/registry",
+  "/builtdock/controller",
+  "/builtdock/builder",
+  "/builtdock/registry",
 ]
 check_cmd = "/app/bin/check {{ .src }}"

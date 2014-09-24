@@ -8,16 +8,16 @@ source PaaS.
 [**Trusted Build**](https://index.docker.io/u/deis/registry/)
 
 This Docker image is based on the trusted build
-[deis/base](https://index.docker.io/u/deis/base/), which itself is based
+[builtdock/base](https://index.docker.io/u/deis/base/), which itself is based
 on the official [ubuntu:12.04](https://index.docker.io/_/ubuntu/) image.
 
 Please add any issues you find with this software to the
-[Deis project](https://github.com/deis/deis/issues).
+[Deis project](https://github.com/builtdock/deis/issues).
 
 ## Usage
 
-* `make build` builds the *deis/registry* image inside a vagrant VM
-* `make run` installs and starts *deis/registry*, then displays log
+* `make build` builds the *builtdock/registry* image inside a vagrant VM
+* `make run` installs and starts *builtdock/registry*, then displays log
   output from the container
 
 ## Environment Variables
@@ -26,7 +26,7 @@ Please add any issues you find with this software to the
 * **ETCD_PORT** sets the TCP port on which to connect to the local etcd
   daemon (default: *4001*)
 * **ETCD_PATH** sets the etcd directory where the registry announces
-  its configuration (default: */deis/registry*)
+  its configuration (default: */builtdock/registry*)
 * **ETCD_TTL** sets the time-to-live before etcd purges a configuration
   value, in seconds (default: *10*)
 * **PORT** sets the TCP port on which the registry listens (default: *5000*)

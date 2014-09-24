@@ -83,7 +83,7 @@ class Session(requests.Session):
     def __init__(self):
         super(Session, self).__init__()
         self.trust_env = False
-        cookie_file = os.path.expanduser('~/.deis/cookies.txt')
+        cookie_file = os.path.expanduser('~/.builtdock/cookies.txt')
         cookie_dir = os.path.dirname(cookie_file)
         self.cookies = MozillaCookieJar(cookie_file)
         self.proxies = {
@@ -170,7 +170,7 @@ class Session(requests.Session):
             kwargs['headers'] = {'Referer': url}
         response = super(Session, self).request(*args, **kwargs)
         self.cookies.save()
-        # set ~/.deis/cookies.txt readable only by its owner
+        # set ~/.builtdock/cookies.txt readable only by its owner
         os.chmod(self.cookies.filename, 0600)
         return response
 
@@ -179,7 +179,7 @@ class Settings(dict):
     """
     Settings backed by a file in the user's home directory
 
-    On init, settings are loaded from ~/.deis/client.json
+    On init, settings are loaded from ~/.builtdock/client.json
     """
 
     def __init__(self):
@@ -843,7 +843,7 @@ class DeisClient(object):
 
         Arguments:
           <image>
-            A fully-qualified docker image, either from Docker Hub (e.g. deis/example-go)
+            A fully-qualified docker image, either from Docker Hub (e.g. builtdock/example-go)
             or from an in-house registry (e.g. myregistry.example.com:5000/example-go).
 
         Options:

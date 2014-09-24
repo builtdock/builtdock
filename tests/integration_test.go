@@ -7,11 +7,11 @@ import (
 	"os/user"
 	"testing"
 
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 var (
-	gitCloneCmd  = "if [ ! -d {{.ExampleApp}} ] ; then git clone https://github.com/deis/{{.ExampleApp}}.git ; fi"
+	gitCloneCmd  = "if [ ! -d {{.ExampleApp}} ] ; then git clone https://github.com/builtdock/{{.ExampleApp}}.git ; fi"
 	gitRemoveCmd = "git remote remove deis"
 	gitPushCmd   = "git push deis master"
 	gitAddCmd    = "git add ."
@@ -27,13 +27,13 @@ func TestGlobal(t *testing.T) {
 }
 
 func cookieTest(t *testing.T, params *utils.DeisTestConfig) {
-	// Regression test for https://github.com/deis/deis/pull/1136
+	// Regression test for https://github.com/builtdock/builtdock/pull/1136
 	// Ensure that cookies are cleared on auth:register and auth:cancel
 	user, err := user.Current()
 	if err != nil {
 		t.Fatal(err)
 	}
-	cookieJar := user.HomeDir + "/.deis/cookies.txt"
+	cookieJar := user.HomeDir + "/.builtdock/cookies.txt"
 	utils.Execute(t, authRegisterCmd, params, false, "")
 	cmd := "cat " + cookieJar
 	utils.CheckList(t, cmd, params, "csrftoken", false)

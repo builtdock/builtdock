@@ -21,4 +21,4 @@ Details on this approach can be found in GitHub issue `#923`_. Feedback is welco
   accomplished by setting relevant options in etcd. For details on replacing the database, see
   :ref:`database_settings`.
 
-.. _`#923`: https://github.com/deis/deis/issues/923
+.. _`#923`: https://github.com/builtdock/deis/issues/923

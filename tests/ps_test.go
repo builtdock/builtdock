@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 var (
@@ -54,7 +54,7 @@ func psScaleTest(t *testing.T, params *utils.DeisTestConfig) {
 		cmd = strings.Replace(cmd, "web", "cmd", 1)
 	}
 	utils.Execute(t, cmd, params, false, "")
-	// Regression test for https://github.com/deis/deis/pull/1347
+	// Regression test for https://github.com/builtdock/builtdock/pull/1347
 	// Ensure that systemd unitfile droppings are cleaned up.
 	sshCmd := exec.Command("ssh",
 		"-o", "StrictHostKeyChecking=no",

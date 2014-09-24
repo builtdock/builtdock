@@ -10,7 +10,7 @@ rm -rf ~/.deis ~/.fleetctl ~/.ssh/known_hosts
 ssh-add -D || eval $(ssh-agent) && ssh-add -D
 ssh-add ~/.vagrant.d/insecure_private_key
 ssh-add ~/.ssh/deis
-cd ${GOPATH?}/src/github.com/deis/deis
+cd ${GOPATH?}/src/github.com/builtdock/deis
 rm -rf tests/example-*
 
 # Vagrant provisioning

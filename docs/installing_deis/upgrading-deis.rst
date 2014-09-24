@@ -122,13 +122,13 @@ To migrate over, start by pointing the new cluster at the old cluster's endpoint
 
 .. code-block:: console
 
-    $ etcdctl set /deis/database/host pqsl.example.org
-    $ etcdctl set /deis/database/port 1234
+    $ etcdctl set /builtdock/database/host pqsl.example.org
+    $ etcdctl set /builtdock/database/port 1234
     ...
 
 Next, you'll also want to migrate over the application directories:
 
-    $ etcdctl mkdir /deis/services/appname
+    $ etcdctl mkdir /builtdock/services/appname
 
 Start new Components
 ^^^^^^^^^^^^^^^^^^^^
@@ -166,5 +166,5 @@ Once you've finished migrating over to the new cluster, just update your wildcar
 point at your new load balancer. The application names are all the same, so no CNAME
 modification needs to occur.
 
-.. _`#710`: https://github.com/deis/deis/issues/710
-.. _`#467`: https://github.com/deis/deis/issues/467
+.. _`#710`: https://github.com/builtdock/deis/issues/710
+.. _`#467`: https://github.com/builtdock/deis/issues/467

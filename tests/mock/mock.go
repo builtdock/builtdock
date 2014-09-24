@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deis/deis/tests/dockercli"
-	"github.com/deis/deis/tests/etcdutils"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/dockercli"
+	"github.com/builtdock/builtdock/tests/etcdutils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 // RunMockDatabase starts a mock postgresql database for testing.
@@ -16,7 +16,7 @@ func RunMockDatabase(t *testing.T, tag string, etcdPort string, dbPort string) {
 	var err error
 	cli, stdout, stdoutPipe := dockercli.NewClient()
 	done := make(chan bool, 1)
-	dbImage := "deis/test-postgresql:latest"
+	dbImage := "builtdock/test-postgresql:latest"
 	ipaddr := utils.HostAddress()
 	done <- true
 	go func() {
@@ -35,15 +35,15 @@ func RunMockDatabase(t *testing.T, tag string, etcdPort string, dbPort string) {
 	time.Sleep(1000 * time.Millisecond)
 	dockercli.PrintToStdout(t, stdout, stdoutPipe, "Starting")
 	setkeys := []string{
-		"/deis/database/user",
-		"/deis/database/password",
-		"/deis/database/name",
+		"/builtdock/database/user",
+		"/builtdock/database/password",
+		"/builtdock/database/name",
 	}
 	setdir := []string{}
 	dbhandler := etcdutils.InitEtcd(setdir, setkeys, etcdPort)
 	etcdutils.PublishEtcd(t, dbhandler)
 	etcdutils.SetEtcd(t,
-		[]string{"/deis/database/host", "/deis/database/port", "/deis/database/engine"},
+		[]string{"/builtdock/database/host", "/builtdock/database/port", "/builtdock/database/engine"},
 		[]string{ipaddr, dbPort, "postgresql_psycopg2"}, dbhandler.C)
 	if err != nil {
 		t.Fatal(err)

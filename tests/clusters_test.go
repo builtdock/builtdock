@@ -5,7 +5,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 var (
@@ -53,7 +53,7 @@ func clustersListTest(
 }
 
 func clustersUpdateTest(t *testing.T, params *utils.DeisTestConfig) {
-	// Regression test for https://github.com/deis/deis/pull/1283
+	// Regression test for https://github.com/builtdock/builtdock/pull/1283
 	// Check that we didn't store the path of the key in the cluster.
 	utils.CheckList(t, clustersUpdateCmd, params, "~/.ssh/", true)
 }

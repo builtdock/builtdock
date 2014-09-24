@@ -1,5 +1,5 @@
-FROM deis/base:latest
-MAINTAINER OpDemand <info@opdemand.com>
+FROM builtdock/base:latest
+MAINTAINER BuiltDock Project <info@builtdock.com>
 
 # install 9.3 from postgresql.org repository
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list

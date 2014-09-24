@@ -14,7 +14,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/utils"
 	"github.com/dotcloud/docker/api/client"
 )
 
@@ -203,10 +203,10 @@ func GetImageID(t *testing.T, repo string) string {
 func RunTestEtcd(t *testing.T, name string, port string) {
 	var err error
 	cli, stdout, stdoutPipe := NewClient()
-	etcdImage := "deis/test-etcd:latest"
+	etcdImage := "builtdock/test-etcd:latest"
 	ipaddr := utils.HostAddress()
 	etcdAddr := ipaddr + ":" + port
-	fmt.Printf("--- Running deis/test-etcd at %s\n", etcdAddr)
+	fmt.Printf("--- Running builtdock/test-etcd at %s\n", etcdAddr)
 	done2 := make(chan bool, 1)
 	go func() {
 		done2 <- true

@@ -5,7 +5,7 @@ owner = "root"
 group = "root"
 mode  = "0755"
 keys = [
-  "/deis/database",
+  "/builtdock/database",
 ]
 check_cmd = "/app/bin/check {{ .src }}"
 reload_cmd = "/usr/local/bin/reload"

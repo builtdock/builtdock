@@ -5,31 +5,31 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deis/deis/tests/dockercli"
-	"github.com/deis/deis/tests/etcdutils"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/dockercli"
+	"github.com/builtdock/builtdock/tests/etcdutils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 func TestBuilder(t *testing.T) {
 	var err error
 	setkeys := []string{
-		"/deis/registry/protocol",
-		"/deis/registry/host",
-		"/deis/registry/port",
-		"/deis/cache/host",
-		"/deis/cache/port",
-		"/deis/controller/protocol",
-		"/deis/controller/host",
-		"/deis/controller/port",
-		"/deis/controller/builderKey",
+		"/builtdock/registry/protocol",
+		"/builtdock/registry/host",
+		"/builtdock/registry/port",
+		"/builtdock/cache/host",
+		"/builtdock/cache/port",
+		"/builtdock/controller/protocol",
+		"/builtdock/controller/host",
+		"/builtdock/controller/port",
+		"/builtdock/controller/builderKey",
 	}
 	setdir := []string{
-		"/deis/controller",
-		"/deis/cache",
-		"/deis/database",
-		"/deis/registry",
-		"/deis/domains",
-		"/deis/services",
+		"/builtdock/controller",
+		"/builtdock/cache",
+		"/builtdock/database",
+		"/builtdock/registry",
+		"/builtdock/domains",
+		"/builtdock/services",
 	}
 	tag, etcdPort := utils.BuildTag(), utils.RandomPort()
 	etcdName := "deis-etcd-" + tag
@@ -39,9 +39,9 @@ func TestBuilder(t *testing.T) {
 	handler := etcdutils.InitEtcd(setdir, setkeys, etcdPort)
 	etcdutils.PublishEtcd(t, handler)
 	dockercli.RunDeisDataTest(t, "--name", "deis-builder-data",
-		"-v", "/var/lib/docker", "deis/base", "true")
+		"-v", "/var/lib/docker", "builtdock/base", "true")
 	ipaddr, port := utils.HostAddress(), utils.RandomPort()
-	fmt.Printf("--- Run deis/builder:%s at %s:%s\n", tag, ipaddr, port)
+	fmt.Printf("--- Run builtdock/builder:%s at %s:%s\n", tag, ipaddr, port)
 	name := "deis-builder-" + tag
 	defer cli.CmdRm("-f", name)
 	go func() {
@@ -56,7 +56,7 @@ func TestBuilder(t *testing.T) {
 			"-e", "ETCD_PORT="+etcdPort,
 			"-e", "PORT="+port,
 			"--volumes-from", "deis-builder-data",
-			"--privileged", "deis/builder:"+tag)
+			"--privileged", "builtdock/builder:"+tag)
 	}()
 	dockercli.PrintToStdout(t, stdout, stdoutPipe, "deis-builder running")
 	if err != nil {

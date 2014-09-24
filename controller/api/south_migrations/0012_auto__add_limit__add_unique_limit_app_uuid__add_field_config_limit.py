@@ -146,7 +146,7 @@ class Migration(SchemaMigration):
             'build': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['api.Build']"}),
             'config': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['api.Config']"}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'image': ('django.db.models.fields.CharField', [], {'default': "u'deis/helloworld'", 'max_length': '256'}),
+            'image': ('django.db.models.fields.CharField', [], {'default': "u'builtdock/helloworld'", 'max_length': '256'}),
             'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
             'summary': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),

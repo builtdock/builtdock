@@ -335,7 +335,7 @@ class ContainerTest(TransactionTestCase):
                          "{}.{}.{}".format(container.app, container.type, container.num))
 
     def test_container_command_format(self):
-        # regression test for https://github.com/deis/deis/pull/1285
+        # regression test for https://github.com/builtdock/builtdock/pull/1285
         url = '/api/apps'
         body = {'cluster': 'autotest'}
         response = self.client.post(url, json.dumps(body), content_type='application/json')

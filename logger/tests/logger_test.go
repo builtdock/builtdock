@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/deis/deis/tests/dockercli"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/dockercli"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 func TestLogger(t *testing.T) {
@@ -16,9 +16,9 @@ func TestLogger(t *testing.T) {
 	dockercli.RunTestEtcd(t, etcdName, etcdPort)
 	defer cli.CmdRm("-f", etcdName)
 	dockercli.RunDeisDataTest(t, "--name", "deis-logger-data",
-		"-v", "/var/log/deis", "deis/base", "/bin/true")
+		"-v", "/var/log/deis", "builtdock/base", "/bin/true")
 	ipaddr, port := utils.HostAddress(), utils.RandomPort()
-	fmt.Printf("--- Run deis/logger:%s at %s:%s\n", tag, ipaddr, port)
+	fmt.Printf("--- Run builtdock/logger:%s at %s:%s\n", tag, ipaddr, port)
 	name := "deis-logger-" + tag
 	defer cli.CmdRm("-f", name)
 	go func() {
@@ -31,7 +31,7 @@ func TestLogger(t *testing.T) {
 			"-e", "HOST="+utils.HostAddress(),
 			"-e", "ETCD_PORT="+etcdPort,
 			"--volumes-from", "deis-logger-data",
-			"deis/logger:"+tag)
+			"builtdock/logger:"+tag)
 	}()
 	dockercli.PrintToStdout(t, stdout, stdoutPipe, "deis-logger running")
 	if err != nil {

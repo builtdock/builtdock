@@ -14,7 +14,7 @@ If you do not have an existing application, you can clone an example application
 
 .. code-block:: console
 
-    $ git clone https://github.com/deis/example-ruby-sinatra.git
+    $ git clone https://github.com/builtdock/example-ruby-sinatra.git
     $ cd example-ruby-sinatra
 
 Create an Application
@@ -63,7 +63,7 @@ Use ``git push deis master`` to deploy your application.
     -----> Building Docker image
     Uploading context 11.81 MB
     Uploading context
-    Step 0 : FROM deis/slugrunner
+    Step 0 : FROM builtdock/slugrunner
      ---> 5567a808891d
     Step 1 : RUN mkdir -p /app
      ---> Running in a4f8e66a79c1
@@ -141,7 +141,7 @@ On your next ``git push``, the custom buildpack will be used.
 .. _`Play Buildpack`: https://github.com/heroku/heroku-buildpack-play
 .. _`Python Buildpack`: https://github.com/heroku/heroku-buildpack-python
 .. _`Clojure Buildpack`: https://github.com/heroku/heroku-buildpack-clojure
-.. _`PHP Buildpack`: https://github.com/deis/heroku-buildpack-php
+.. _`PHP Buildpack`: https://github.com/builtdock/heroku-buildpack-php
 .. _`Go Buildpack`: https://github.com/kr/heroku-buildpack-go
 .. _`Meteorite Buildpack`: https://github.com/oortcloud/heroku-buildpack-meteorite
 .. _`Perl Buildpack`: https://github.com/miyagawa/heroku-buildpack-perl

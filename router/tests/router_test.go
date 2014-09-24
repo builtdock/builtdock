@@ -5,26 +5,26 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deis/deis/tests/dockercli"
-	"github.com/deis/deis/tests/etcdutils"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/dockercli"
+	"github.com/builtdock/builtdock/tests/etcdutils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 func TestRouter(t *testing.T) {
 	var err error
 	setkeys := []string{
-		"deis/controller/host",
-		"/deis/controller/port",
-		"/deis/builder/host",
-		"/deis/builder/port",
+		"builtdock/controller/host",
+		"/builtdock/controller/port",
+		"/builtdock/builder/host",
+		"/builtdock/builder/port",
 	}
 	setdir := []string{
-		"/deis/controller",
-		"/deis/router",
-		"/deis/database",
-		"/deis/services",
-		"/deis/builder",
-		"/deis/domains",
+		"/builtdock/controller",
+		"/builtdock/router",
+		"/builtdock/database",
+		"/builtdock/services",
+		"/builtdock/builder",
+		"/builtdock/domains",
 	}
 	tag, etcdPort := utils.BuildTag(), utils.RandomPort()
 	etcdName := "deis-etcd-" + tag
@@ -34,7 +34,7 @@ func TestRouter(t *testing.T) {
 	handler := etcdutils.InitEtcd(setdir, setkeys, etcdPort)
 	etcdutils.PublishEtcd(t, handler)
 	host, port := utils.HostAddress(), utils.RandomPort()
-	fmt.Printf("--- Run deis/router:%s at %s:%s\n", tag, host, port)
+	fmt.Printf("--- Run builtdock/router:%s at %s:%s\n", tag, host, port)
 	name := "deis-router-" + tag
 	go func() {
 		_ = cli.CmdRm("-f", name)
@@ -46,7 +46,7 @@ func TestRouter(t *testing.T) {
 			"-e", "PUBLISH="+port,
 			"-e", "HOST="+host,
 			"-e", "ETCD_PORT="+etcdPort,
-			"deis/router:"+tag)
+			"builtdock/router:"+tag)
 	}()
 	dockercli.PrintToStdout(t, stdout, stdoutPipe, "deis-router running")
 	if err != nil {

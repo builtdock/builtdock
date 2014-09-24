@@ -22,8 +22,8 @@ The following etcd keys are set by the database component, typically in its /bin
 ===========================              =================================================================================
 setting                                  description
 ===========================              =================================================================================
-/deis/logger/host                        IP address of the host running logger
-/deis/logger/port                        port used by the logger service (default: 514)
+/builtdock/logger/host                        IP address of the host running logger
+/builtdock/logger/port                        port used by the logger service (default: 514)
 ===========================              =================================================================================
 
 Settings used by logger
@@ -37,17 +37,17 @@ supplied with Deis:
 
 .. code-block:: console
 
-    $ etcdctl set /deis/logger/image myaccount/myimage:latest
+    $ etcdctl set /builtdock/logger/image myaccount/myimage:latest
 
 This will pull the image from the public Docker registry. You can also pull from a private
 registry:
 
 .. code-block:: console
 
-    $ etcdctl set /deis/logger/image registry.mydomain.org:5000/myaccount/myimage:latest
+    $ etcdctl set /builtdock/logger/image registry.mydomain.org:5000/myaccount/myimage:latest
 
 Be sure that your custom image functions in the same way as the `stock logger image`_ shipped with
 Deis. Specifically, ensure that it sets and reads appropriate etcd keys.
 
-.. _`stock logger image`: https://github.com/deis/deis/tree/master/logger
-.. _`#985`: https://github.com/deis/deis/issues/985
+.. _`stock logger image`: https://github.com/builtdock/builtdock/tree/master/logger
+.. _`#985`: https://github.com/builtdock/deis/issues/985

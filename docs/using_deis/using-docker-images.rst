@@ -14,7 +14,7 @@ Start by cloning an example application:
 
 .. code-block:: console
 
-    $ git clone https://github.com/deis/example-go.git
+    $ git clone https://github.com/builtdock/example-go.git
     $ cd example-go
     $ git checkout docker
 
@@ -87,4 +87,4 @@ Process types other than ``cmd`` are not supported when using Docker images.
 .. _`Docker Image`: http://docs.docker.io/introduction/understanding-docker/
 .. _`DockerHub`: https://registry.hub.docker.com/
 .. _`CMD instruction`: http://docs.docker.io/reference/builder/#cmd
-.. _`issue 1156`: https://github.com/deis/deis/issues/1156
+.. _`issue 1156`: https://github.com/builtdock/deis/issues/1156

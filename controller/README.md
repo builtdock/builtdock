@@ -8,16 +8,16 @@ source PaaS.
 [**Trusted Build**](https://index.docker.io/u/deis/controller/)
 
 This Docker image is based on the trusted build
-[deis/base](https://index.docker.io/u/deis/base/), which itself is based
+[builtdock/base](https://index.docker.io/u/deis/base/), which itself is based
 on the official [ubuntu:12.04](https://index.docker.io/_/ubuntu/) image.
 
 Please add any issues you find with this software to the
-[Deis project](https://github.com/deis/deis/issues).
+[Deis project](https://github.com/builtdock/deis/issues).
 
 ## Usage
 
-* `make build` builds the *deis/controller* image inside a vagrant VM
-* `make run` installs and starts *deis/controller*, then displays log
+* `make build` builds the *builtdock/controller* image inside a vagrant VM
+* `make run` installs and starts *builtdock/controller*, then displays log
   output from the container
 * `make test` runs unit tests for the controller and reports results
 
@@ -27,7 +27,7 @@ Please add any issues you find with this software to the
 * **ETCD_PORT** sets the TCP port on which to connect to the local etcd
   daemon (default: *4001*)
 * **ETCD_PATH** sets the etcd directory where the controller announces
-  its configuration (default: */deis/controller*)
+  its configuration (default: */builtdock/controller*)
 * **ETCD_TTL** sets the time-to-live before etcd purges a configuration
   value, in seconds (default: *10*)
 * **PORT** sets the TCP port on which the controller listens for API

@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/coreos/go-etcd/etcd"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 // EtcdHandle is used to set keys and values in a test etcd instance.

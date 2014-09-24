@@ -4,7 +4,7 @@
 # with the nightmare of double escaping all these commands through `vagrant ssh -c "\\\\\\\\\AGH!"`
 
 # NB. Command for exporting fixtures
-# `./manage.py dumpdata --natural --indent=4 -e sessions -e admin -e contenttypes -e auth.Permission -e south > /app/deis/api/fixtures/dev.json`
+# `./manage.py dumpdata --natural --indent=4 -e sessions -e admin -e contenttypes -e auth.Permission -e south > /app/builtdock/api/fixtures/dev.json`
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2

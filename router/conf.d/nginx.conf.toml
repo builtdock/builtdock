@@ -5,11 +5,11 @@ uid = 0
 gid = 0
 mode  = "0644"
 keys = [
-  "/deis/services",
-  "/deis/router",
-  "/deis/domains",
-  "/deis/controller",
-  "/deis/builder",
+  "/builtdock/services",
+  "/builtdock/router",
+  "/builtdock/domains",
+  "/builtdock/controller",
+  "/builtdock/builder",
 ]
 check_cmd  = "/app/bin/check {{ .src }}"
 reload_cmd = "/usr/sbin/nginx -s reload"

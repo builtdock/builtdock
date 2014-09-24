@@ -7,16 +7,16 @@ A system logger for use in the [Deis](http://deis.io) open source PaaS.
 [**Trusted Build**](https://index.docker.io/u/deis/logger/)
 
 This Docker image is based on the trusted build
-[deis/base](https://index.docker.io/u/deis/base/), which itself is based
+[builtdock/base](https://index.docker.io/u/deis/base/), which itself is based
 on the official [ubuntu:12.04](https://index.docker.io/_/ubuntu/) image.
 
 Please add any issues you find with this software to the
-[Deis project](https://github.com/deis/deis/issues).
+[Deis project](https://github.com/builtdock/deis/issues).
 
 ## Usage
 
-* `make build` builds the *deis/logger* image inside a vagrant VM
-* `make run` installs and starts *deis/logger*, then displays log
+* `make build` builds the *builtdock/logger* image inside a vagrant VM
+* `make run` installs and starts *builtdock/logger*, then displays log
   output from the container
 
 ## Environment Variables
@@ -25,7 +25,7 @@ Please add any issues you find with this software to the
 * **ETCD_PORT** sets the TCP port on which to connect to the local etcd
   daemon (default: *4001*)
 * **ETCD_PATH** sets the etcd directory where the logger announces
-  its configuration (default: */deis/logger*)
+  its configuration (default: */builtdock/logger*)
 * **ETCD_TTL** sets the time-to-live before etcd purges a configuration
   value, in seconds (default: *10*)
 * **PORT** sets the TCP port on which the logger listens (default: *514*)

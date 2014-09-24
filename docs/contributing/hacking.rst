@@ -204,8 +204,8 @@ Creating a pull request on the Deis repository also runs an integration test on
 http://ci.deis.io to ensure the pull request doesn't break any tests or reduce code
 coverage.
 
-.. _`easy-fix`: https://github.com/deis/deis/issues?labels=easy-fix&state=open
-.. _`deisctl`: https://github.com/deis/deisctl
-.. _`fork the Deis repository`: https://github.com/deis/deis/fork
-.. _`running the tests`: https://github.com/deis/deis/tree/master/tests#readme
-.. _`pull request`: https://github.com/deis/deis/pulls
+.. _`easy-fix`: https://github.com/builtdock/deis/issues?labels=easy-fix&state=open
+.. _`deisctl`: https://github.com/builtdock/deisctl
+.. _`fork the Deis repository`: https://github.com/builtdock/builtdock/fork
+.. _`running the tests`: https://github.com/builtdock/builtdock/tree/master/tests#readme
+.. _`pull request`: https://github.com/builtdock/builtdock/pulls

@@ -1,20 +1,20 @@
 include ../includes.mk
 
 build: check-docker
-	docker build -t deis/logger:$(BUILD_TAG) .
+	docker build -t builtdock/logger:$(BUILD_TAG) .
 
 push: check-docker check-registry check-deisctl
-	docker tag deis/logger:$(BUILD_TAG) $(REGISTRY)/deis/logger:$(BUILD_TAG)
-	docker push $(REGISTRY)/deis/logger:$(BUILD_TAG)
-	deisctl config logger set image=$(REGISTRY)/deis/logger:$(BUILD_TAG)
+	docker tag builtdock/logger:$(BUILD_TAG) $(REGISTRY)/builtdock/logger:$(BUILD_TAG)
+	docker push $(REGISTRY)/builtdock/logger:$(BUILD_TAG)
+	deisctl config logger set image=$(REGISTRY)/builtdock/logger:$(BUILD_TAG)
 
 clean: check-docker check-registry
-	docker rmi deis/logger:$(BUILD_TAG)
-	docker rmi $(REGISTRY)/deis/logger:$(BUILD_TAG)
+	docker rmi builtdock/logger:$(BUILD_TAG)
+	docker rmi $(REGISTRY)/builtdock/logger:$(BUILD_TAG)
 
 full-clean: check-docker check-registry
-	docker images -q deis/logger | xargs docker rmi -f
-	docker images -q $(REGISTRY)/deis/logger | xargs docker rmi -f
+	docker images -q builtdock/logger | xargs docker rmi -f
+	docker images -q $(REGISTRY)/builtdock/logger | xargs docker rmi -f
 
 install: check-deisctl
 	deisctl install logger-data
@@ -52,7 +52,7 @@ test-unit: test-style
 	go test -v -cover ./syslog
 
 test-functional:
-	@docker history deis/test-etcd >/dev/null 2>&1 || docker pull deis/test-etcd:latest
+	@docker history builtdock/test-etcd >/dev/null 2>&1 || docker pull builtdock/test-etcd:latest
 	GOPATH=$(CURDIR)/../tests/_vendor:$(GOPATH) go test -v ./tests/...
 
 coverage:

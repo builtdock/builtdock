@@ -1,5 +1,5 @@
-FROM deis/base:latest
-MAINTAINER OpDemand <info@opdemand.com>
+FROM builtdock/base:latest
+MAINTAINER BuiltDock Project <info@builtdock.com>
 
 # install go runtime
 RUN wget -qO- https://storage.googleapis.com/golang/go1.3.1.linux-amd64.tar.gz | tar -C /usr/local -xz
@@ -18,7 +18,7 @@ CMD ["/app/bin/boot"]
 EXPOSE 514
 
 ADD . /app
-ADD . /go/src/github.com/deis/deis/logger
+ADD . /go/src/github.com/builtdock/builtdock/logger
 
 # compile the binary
-RUN cd /go/src/github.com/deis/deis/logger/syslogd && go install -v .
+RUN cd /go/src/github.com/builtdock/builtdock/logger/syslogd && go install -v .

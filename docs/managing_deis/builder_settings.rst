@@ -22,8 +22,8 @@ The following etcd keys are set by the builder component, typically in its /bin/
 ==================              ================================================
 setting                         description
 ==================              ================================================
-/deis/builder/host              IP address of the host running builder
-/deis/builder/port              port used by the builder service (default: 2223)
+/builtdock/builder/host              IP address of the host running builder
+/builtdock/builder/port              port used by the builder service (default: 2223)
 ==================              ================================================
 
 Settings used by builder
@@ -33,16 +33,16 @@ The following etcd keys are used by the builder component.
 ====================================      ===========================================================
 setting                                   description
 ====================================      ===========================================================
-/deis/builder/users/*                     user SSH keys to provision (set by controller)
-/deis/controller/builderKey               used to communicate with the controller (set by controller)
-/deis/controller/host                     host of the controller component (set by controller)
-/deis/controller/port                     port of the controller component (set by controller)
-/deis/controller/protocol                 protocol of the controller component (set by controller)
-/deis/registry/host                       host of the controller component (set by registry)
-/deis/registry/port                       port of the controller component (set by registry)
-/deis/services/*                          application metadata (set by controller)
-/deis/slugbuilder/image                   slugbuilder image to use (default: deis/slugbuilder:latest)
-/deis/slugrunner/image                    slugrunner image to use (default: deis/slugrunner:latest)
+/builtdock/builder/users/*                     user SSH keys to provision (set by controller)
+/builtdock/controller/builderKey               used to communicate with the controller (set by controller)
+/builtdock/controller/host                     host of the controller component (set by controller)
+/builtdock/controller/port                     port of the controller component (set by controller)
+/builtdock/controller/protocol                 protocol of the controller component (set by controller)
+/builtdock/registry/host                       host of the controller component (set by registry)
+/builtdock/registry/port                       port of the controller component (set by registry)
+/builtdock/services/*                          application metadata (set by controller)
+/builtdock/slugbuilder/image                   slugbuilder image to use (default: builtdock/slugbuilder:latest)
+/builtdock/slugrunner/image                    slugrunner image to use (default: builtdock/slugrunner:latest)
 ====================================      ===========================================================
 
 Using a custom builder image
@@ -52,17 +52,17 @@ supplied with Deis:
 
 .. code-block:: console
 
-    $ etcdctl set /deis/builder/image myaccount/myimage:latest
+    $ etcdctl set /builtdock/builder/image myaccount/myimage:latest
 
 This will pull the image from the public Docker registry. You can also pull from a private
 registry:
 
 .. code-block:: console
 
-    $ etcdctl set /deis/builder/image registry.mydomain.org:5000/myaccount/myimage:latest
+    $ etcdctl set /builtdock/builder/image registry.mydomain.org:5000/myaccount/myimage:latest
 
 Be sure that your custom image functions in the same way as the `stock builder image`_ shipped with
 Deis. Specifically, ensure that it sets and reads appropriate etcd keys.
 
-.. _`stock builder image`: https://github.com/deis/deis/tree/master/builder
-.. _`#985`: https://github.com/deis/deis/issues/985
+.. _`stock builder image`: https://github.com/builtdock/builtdock/tree/master/builder
+.. _`#985`: https://github.com/builtdock/deis/issues/985

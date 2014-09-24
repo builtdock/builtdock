@@ -753,13 +753,13 @@ def _log_domain_removed(**kwargs):
 
 def _etcd_publish_key(**kwargs):
     key = kwargs['instance']
-    _etcd_client.write('/deis/builder/users/{}/{}'.format(
+    _etcd_client.write('/builtdock/builder/users/{}/{}'.format(
         key.owner.username, fingerprint(key.public)), key.public)
 
 
 def _etcd_purge_key(**kwargs):
     key = kwargs['instance']
-    _etcd_client.delete('/deis/builder/users/{}/{}'.format(
+    _etcd_client.delete('/builtdock/builder/users/{}/{}'.format(
         key.owner.username, fingerprint(key.public)))
 
 
@@ -767,7 +767,7 @@ def _etcd_purge_user(**kwargs):
     username = kwargs['instance'].username
     try:
         _etcd_client.delete(
-            '/deis/builder/users/{}'.format(username), dir=True, recursive=True)
+            '/builtdock/builder/users/{}'.format(username), dir=True, recursive=True)
     except KeyError:
         # If _etcd_publish_key() wasn't called, there is no user dir to delete.
         pass
@@ -776,25 +776,25 @@ def _etcd_purge_user(**kwargs):
 def _etcd_create_app(**kwargs):
     appname = kwargs['instance']
     if kwargs['created']:
-        _etcd_client.write('/deis/services/{}'.format(appname), None, dir=True)
+        _etcd_client.write('/builtdock/services/{}'.format(appname), None, dir=True)
 
 
 def _etcd_purge_app(**kwargs):
     appname = kwargs['instance']
-    _etcd_client.delete('/deis/services/{}'.format(appname), dir=True, recursive=True)
+    _etcd_client.delete('/builtdock/services/{}'.format(appname), dir=True, recursive=True)
 
 
 def _etcd_publish_domains(**kwargs):
     app = kwargs['instance'].app
     app_domains = app.domain_set.all()
     if app_domains:
-        _etcd_client.write('/deis/domains/{}'.format(app),
+        _etcd_client.write('/builtdock/domains/{}'.format(app),
                            ' '.join(str(d.domain) for d in app_domains))
 
 
 def _etcd_purge_domains(**kwargs):
     app = kwargs['instance'].app
-    _etcd_client.delete('/deis/domains/{}'.format(app))
+    _etcd_client.delete('/builtdock/domains/{}'.format(app))
 
 
 # Log significant app-related events

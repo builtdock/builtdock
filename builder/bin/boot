@@ -12,7 +12,7 @@ set -eo pipefail
 # configure etcd
 export ETCD_PORT=${ETCD_PORT:-4001}
 export ETCD="$HOST:$ETCD_PORT"
-export ETCD_PATH=${ETCD_PATH:-/deis/builder}
+export ETCD_PATH=${ETCD_PATH:-/builtdock/builder}
 export ETCD_TTL=${ETCD_TTL:-10}
 export STORAGE_DRIVER=${STORAGE_DRIVER:-btrfs}
 
@@ -54,7 +54,7 @@ while [[ ! -e /var/run/docker.sock ]]; do
 done
 
 # HACK: load progrium/cedarish tarball for faster boot times
-# see https://github.com/deis/deis/issues/1027
+# see https://github.com/builtdock/deis/issues/1027
 if ! docker history progrium/cedarish >/dev/null 2>/dev/null ; then
 	echo "Loading cedarish..."
 	docker load -i /progrium_cedarish.tar
@@ -63,8 +63,8 @@ else
 fi
 
 # build required images
-docker build -t deis/slugbuilder /app/slugbuilder/
-docker build -t deis/slugrunner /app/slugrunner/
+docker build -t builtdock/slugbuilder /app/slugbuilder/
+docker build -t builtdock/slugrunner /app/slugrunner/
 
 # start an SSH daemon to process `git push` requests
 /usr/sbin/sshd -D -e &

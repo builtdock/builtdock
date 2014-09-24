@@ -14,7 +14,7 @@ If you do not have an existing application, you can clone an example application
 
 .. code-block:: console
 
-    $ git clone https://github.com/deis/helloworld.git
+    $ git clone https://github.com/builtdock/helloworld.git
     $ cd helloworld
 
 Dockerfile Requirements
@@ -58,9 +58,9 @@ Use ``git push deis master`` to deploy your application.
     -----> Building Docker image
     Uploading context 4.096 kB
     Uploading context
-    Step 0 : FROM deis/base:latest
+    Step 0 : FROM builtdock/base:latest
      ---> 60024338bc63
-    Step 1 : MAINTAINER OpDemand <info@opdemand.com>
+    Step 1 : MAINTAINER BuiltDock Project <info@builtdock.com>
      ---> Using cache
      ---> 2af5ad7f28d6
     Step 2 : RUN wget -O /tmp/go1.2.1.linux-amd64.tar.gz -q https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz
@@ -78,12 +78,12 @@ Use ``git push deis master`` to deploy your application.
     Step 6 : ENV PATH /usr/local/go/bin:/go/bin:$PATH
      ---> Using cache
      ---> 2ba6f6c9f108
-    Step 7 : ADD . /go/src/github.com/deis/helloworld
+    Step 7 : ADD . /go/src/github.com/builtdock/helloworld
      ---> 94ab7f4b977b
     Removing intermediate container 171b7d9fdb34
-    Step 8 : RUN cd /go/src/github.com/deis/helloworld && go install -v .
+    Step 8 : RUN cd /go/src/github.com/builtdock/helloworld && go install -v .
      ---> Running in 0c8fbb2d2812
-    github.com/deis/helloworld
+    github.com/builtdock/helloworld
      ---> 13b5af931393
     Removing intermediate container 0c8fbb2d2812
     Step 9 : ENV PORT 80
@@ -131,5 +131,5 @@ Deis also supports scaling other process types as defined in a `Procfile`_.  To 
 .. _`Dockerfile`: http://docs.docker.io/en/latest/use/builder/
 .. _`Docker Image`: http://docs.docker.io/introduction/understanding-docker/
 .. _`CMD instruction`: http://docs.docker.io/reference/builder/#cmd
-.. _`issue 1156`: https://github.com/deis/deis/issues/1156
+.. _`issue 1156`: https://github.com/builtdock/deis/issues/1156
 .. _`Procfile`: https://devcenter.heroku.com/articles/procfile

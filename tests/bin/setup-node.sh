@@ -36,7 +36,7 @@ pip install virtualenv
 useradd -G docker,vboxusers -s /bin/bash -m jenkins
 mkdir -p /home/jenkins/bin
 wget -x -O /home/jenkins/bin/start-node.sh \
-    https://raw.githubusercontent.com/deis/deis/master/tests/bin/start-node.sh
+    https://raw.githubusercontent.com/builtdock/builtdock/master/tests/bin/start-node.sh
 chmod +x /home/jenkins/bin/start-node.sh
 chown -R jenkins:jenkins /home/jenkins/bin
 

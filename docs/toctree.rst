@@ -11,10 +11,10 @@ This documentation has the following resources:
 .. toctree::
 
    index
-   understanding_deis/index
-   installing_deis/index
-   using_deis/index
-   managing_deis/index
+   understanding_builtdock/index
+   installing_builtdock/index
+   using_builtdock/index
+   managing_builtdock/index
    contributing/index
    reference/index
    faq

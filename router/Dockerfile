@@ -1,5 +1,5 @@
-FROM deis/base:latest
-MAINTAINER OpDemand <info@opdemand.com>
+FROM builtdock/base:latest
+MAINTAINER BuiltDock Project <info@builtdock.com>
 
 RUN apt-get update && \
     apt-get install -yq patch libpcre3 libpcre3-dev libssl-dev libgeoip-dev

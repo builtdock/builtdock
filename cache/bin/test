@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Run container-level tests for deis/cache.
+# Run container-level tests for builtdock/cache.
 # This script is designed to be run inside the container.
 #
 

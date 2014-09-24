@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/deis/deis/tests/dockercli"
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/dockercli"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 func TestDatabase(t *testing.T) {
@@ -16,9 +16,9 @@ func TestDatabase(t *testing.T) {
 	dockercli.RunTestEtcd(t, etcdName, etcdPort)
 	defer cli.CmdRm("-f", etcdName)
 	dockercli.RunDeisDataTest(t, "--name", "deis-database-data",
-		"-v", "/var/lib/postgresql", "deis/base", "true")
+		"-v", "/var/lib/postgresql", "builtdock/base", "true")
 	host, port := utils.HostAddress(), utils.RandomPort()
-	fmt.Printf("--- Run deis/database:%s at %s:%s\n", tag, host, port)
+	fmt.Printf("--- Run builtdock/database:%s at %s:%s\n", tag, host, port)
 	name := "deis-database-" + tag
 	defer cli.CmdRm("-f", name)
 	go func() {
@@ -31,7 +31,7 @@ func TestDatabase(t *testing.T) {
 			"-e", "HOST="+host,
 			"-e", "ETCD_PORT="+etcdPort,
 			"--volumes-from", "deis-database-data",
-			"deis/database:"+tag)
+			"builtdock/database:"+tag)
 	}()
 	dockercli.PrintToStdout(t, stdout, stdoutPipe, "deis-database running")
 	if err != nil {

@@ -1,5 +1,5 @@
 FROM progrium/cedarish:cedar
-MAINTAINER OpDemand <info@opdemand.com>
+MAINTAINER BuiltDock Project <info@builtdock.com>
 
 ADD ./runner /runner
 ENTRYPOINT ["/runner/init"]

@@ -52,7 +52,7 @@ class Migration(SchemaMigration):
             'config': ('json_field.fields.JSONField', [], {'default': "u'null'", 'blank': 'True'}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'dockerfile': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'image': ('django.db.models.fields.CharField', [], {'default': "u'deis/buildstep'", 'max_length': '256'}),
+            'image': ('django.db.models.fields.CharField', [], {'default': "u'builtdock/buildstep'", 'max_length': '256'}),
             'output': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
             'procfile': ('json_field.fields.JSONField', [], {'default': "u'null'", 'blank': 'True'}),

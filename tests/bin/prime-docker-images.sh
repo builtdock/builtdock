@@ -11,8 +11,8 @@ docker rm `docker ps -a -q`
 docker rmi -f `docker images -q`
 
 # Pull Deis testing essentials
-docker pull deis/base:latest
-docker pull deis/slugbuilder:latest
-docker pull deis/slugrunner:latest
-docker pull deis/test-etcd:latest
-docker pull deis/test-postgresql:latest
+docker pull builtdock/base:latest
+docker pull builtdock/slugbuilder:latest
+docker pull builtdock/slugrunner:latest
+docker pull builtdock/test-etcd:latest
+docker pull builtdock/test-postgresql:latest

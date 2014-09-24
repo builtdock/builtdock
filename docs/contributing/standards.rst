@@ -119,8 +119,8 @@ merge.
 .. _mccabe: https://pypi.python.org/pypi/mccabe/
 .. _PEP8: http://www.python.org/dev/peps/pep-0008/
 .. _`The Zen of Python`: http://www.python.org/dev/peps/pep-0020/
-.. _`pull request`: https://github.com/deis/deis/pulls
-.. _`GitHub issue`: https://github.com/deis/deis/issues
+.. _`pull request`: https://github.com/builtdock/builtdock/pulls
+.. _`GitHub issue`: https://github.com/builtdock/deis/issues
 
 
 .. _commit_style_guide:
@@ -244,12 +244,12 @@ example:
     and then restart the controller on port 8000:
 
         $ docker run -d -p 8000:8000 -e ETCD=<etcd_endpoint> -e HOST=<host_ip> \
-        -e PORT=8000 -name deis-controller deis/controller
+        -e PORT=8000 -name deis-controller builtdock/controller
 
     now you can start the proxy component by running:
 
         $ docker run -d -p 80:80 -e ETCD=<etcd_endpoint> -e HOST=<host_ip> -e PORT=80 \
-        -name deis-router deis/router
+        -name deis-router builtdock/router
 
     the router should then start proxying requests from port 80 to the controller.
 
@@ -291,12 +291,12 @@ Examples
         and then restart the controller on port 8000:
 
         $ docker run -d -p 8000:8000 -e ETCD=<etcd_endpoint> -e HOST=<host_ip> \
-        -e PORT=8000 -name deis-controller deis/controller
+        -e PORT=8000 -name deis-controller builtdock/controller
 
         now you can start the proxy component by running:
 
         $ docker run -d -p 80:80 -e ETCD=<etcd_endpoint> -e HOST=<host_ip> -e PORT=80 \
-        -name deis-router deis/router
+        -name deis-router builtdock/router
 
         The router should then start proxying requests from port 80 to the controller.
     ----------------------------------------------------------------------------------

@@ -74,14 +74,14 @@ Please see README.md_ for details on using Deis with Vagrant.
 
 
 .. _`CoreOS Documentation`: https://coreos.com/docs/
-.. _`Amazon EC2`: https://github.com/deis/deis/tree/master/contrib/ec2#readme
-.. _`contrib/ec2`: https://github.com/deis/deis/tree/master/contrib/ec2
-.. _Rackspace: https://github.com/deis/deis/tree/master/contrib/rackspace#readme
-.. _DigitalOcean: https://github.com/deis/deis/tree/master/contrib/digitalocean#readme
-.. _`contrib/rackspace`: https://github.com/deis/deis/tree/master/contrib/rackspace
-.. _`contrib/digitalocean`: https://github.com/deis/deis/tree/master/contrib/digitalocean
-.. _`contrib/bare-metal`: https://github.com/deis/deis/tree/master/contrib/bare-metal
-.. _`Google Compute Engine`: https://github.com/deis/deis/tree/master/contrib/gce#readme
-.. _`contrib/gce`: https://github.com/deis/deis/tree/master/contrib/gce
+.. _`Amazon EC2`: https://github.com/builtdock/builtdock/tree/master/contrib/ec2#readme
+.. _`contrib/ec2`: https://github.com/builtdock/builtdock/tree/master/contrib/ec2
+.. _Rackspace: https://github.com/builtdock/builtdock/tree/master/contrib/rackspace#readme
+.. _DigitalOcean: https://github.com/builtdock/builtdock/tree/master/contrib/digitalocean#readme
+.. _`contrib/rackspace`: https://github.com/builtdock/builtdock/tree/master/contrib/rackspace
+.. _`contrib/digitalocean`: https://github.com/builtdock/builtdock/tree/master/contrib/digitalocean
+.. _`contrib/bare-metal`: https://github.com/builtdock/builtdock/tree/master/contrib/bare-metal
+.. _`Google Compute Engine`: https://github.com/builtdock/builtdock/tree/master/contrib/gce#readme
+.. _`contrib/gce`: https://github.com/builtdock/builtdock/tree/master/contrib/gce
 .. _Vagrant: http://www.vagrantup.com/
-.. _README.md: https://github.com/deis/deis/tree/master/README.md
+.. _README.md: https://github.com/builtdock/builtdock/tree/master/README.md

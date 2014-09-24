@@ -3,7 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
-	"github.com/deis/deis/logger/syslog"
+	"github.com/builtdock/builtdock/logger/syslog"
 	"io"
 	"os"
 	"os/signal"

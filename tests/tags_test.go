@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/deis/deis/tests/utils"
+	"github.com/builtdock/builtdock/tests/utils"
 )
 
 var (
