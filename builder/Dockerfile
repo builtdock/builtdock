@@ -1,4 +1,4 @@
-FROM deis/base:latest
+FROM builtdock/base:latest
 MAINTAINER BuiltDock Project <info@builtdock.com>
 
 # install docker-in-docker
